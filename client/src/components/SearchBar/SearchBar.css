@@ -1,0 +1,37 @@
+.searchContainer {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;    
+    max-width: 190px;   
+
+}
+
+.input {
+    width: 300%;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0ae68a;
+    transition: .3s ease;
+   }
+
+   
+   
+   .input:focus, input:hover {
+    outline: none;
+    border-color: rgba(234,76,137,0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+   }
+   
+
+   
+   
+   
+   

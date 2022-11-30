@@ -1,0 +1,52 @@
+.LandingContainer {
+    background-image: url('C:\Users\decap\Desktop\PI-Countries-main\client\src\Img/Landingpage.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.LandingTitle {
+    position: fixed;   
+    text-justify: distribute;
+    top: 100px; 
+    font-size: 80px;
+    color: #1a1a1d;
+    font-family: "Montserrat", Gadget, sans-serif;    
+}
+
+
+.LandingButton { 
+    position: fixed;
+    bottom: 100px;
+    left: 580px;         
+    padding: 17px 40px;
+    border-radius: 50px;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all .5s ease;
+}
+.LandingButton:hover {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+   }
+   
+.LandingButton:active {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+   }

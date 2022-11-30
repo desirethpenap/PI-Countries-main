@@ -1,0 +1,85 @@
+.grid-container {
+    display: grid;
+    gap: 30px;
+    grid-template-areas: 
+    "navBar"
+    "appTitle"
+    "filters"
+    "pagination"
+    "cards-content"
+    "refreshButtonDiv";
+}
+
+@media (min-width: 600px) {
+    .grid-container {
+        grid-template-rows: 75px 30px 100px 50px 50px auto 50px;
+    }
+}
+
+.HomeContainer {
+    background-image: url('C:\Users\decap\Desktop\PI-Countries-main\client\src\Img/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+  
+}
+
+.appTitle {
+    font-size: 60px;
+    color: #252524;
+    font-family: "Comic Sans MS", Gadget, sans-serif;
+    position: relative;
+}
+
+.cards-content {    
+    display: flex;
+    justify-content: space-around;
+}
+
+.cards-grid {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+.refreshButton {    
+    padding: 17px 40px;
+    border-radius: 50px;
+    border: 0;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all .5s ease;
+}
+
+.refreshButton:hover {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+button:active {
+    letter-spacing: 3px;
+    background-color: hsl(261deg 80% 48%);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+   }
