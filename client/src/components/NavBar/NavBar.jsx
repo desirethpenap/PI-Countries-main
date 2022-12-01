@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './NavBar.css'
+
 
 export default function NavBar () {
     return (
@@ -7,7 +9,22 @@ export default function NavBar () {
             
             <Link to = '/home' className='navButton'>
                 Home
-            </Link>      
+            </Link>    
+            
+            <Link to = '/about' className='navButton'>
+                About
+            </Link>
+
+             
+            <Link to = '/activities' className='navButton'>
+                Create Activity
+            </Link>
+           
+            
+           
+           
+
+
                        
         </div>
     )

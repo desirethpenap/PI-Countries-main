@@ -1,7 +1,7 @@
 import React from "react";
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { getAllCountries,filterByContinent, sortByName } from '../../redux/actions/index';
+import { getAllActivities, getAllCountries, filterByActivity, filterByContinent, sortByName, sortByPopulation } from '../../redux/actions/index';
 import NavBar from '../NavBar/NavBar.jsx';
 import Card from '../Card/Card.jsx';
 import Pagination from '../Pagination/Pagination.jsx';
@@ -12,12 +12,15 @@ import './Home.css'
 export default function Home (){
 const dispatch = useDispatch();
 useEffect(()=>{
-    dispatch(getAllCountries());
+    dispatch(getAllActivities());
+    dispatch(getAllCountries())
 },[dispatch])
 
+const allActivities = useSelector((state) => state.activities);
 const allCountries = useSelector((state) => state.countries)
 
 const [sortName, setSortName] = useState("");
+const [sortPopulation, setSortPopulation] = useState("");
 
 
 const [currentPage, setCurrentPage] = useState(1);
@@ -66,6 +69,11 @@ function handlePaginationClick(e) {
     }
 }
 
+function handleFilterByActivity (e) {
+    dispatch(filterByActivity(e.target.value));
+    setCurrentPage(1)
+}
+
 
 
 function handleFilterByContinent (e) {
@@ -80,6 +88,13 @@ function handleSortByName(e) {
     setSortName(`Sort ${e.target.value}`);
 }
 
+function handleSortByPopulation(e) {
+    e.preventDefault();
+    dispatch(sortByPopulation(e.target.value));
+    setCurrentPage(1);
+    setSortPopulation(`Sort ${e.target.value}`);
+}
+
 
   return (
 
@@ -90,7 +105,16 @@ function handleSortByName(e) {
 
                 <h1 className = "appTitle"> Countries of the World Henry App</h1>            
                 
-                <div className = "filters">               
+                <div className = "filters">  
+
+                <select onChange = {e => handleFilterByActivity(e)}>
+                        <option value = "all">Select Activity</option>
+                        {allActivities?.map((a) => {
+                            return (
+                                <option value = {a.name}>{a.name}</option>
+                            )
+                        })}
+                    </select>             
 
                     <select onChange = {e => handleFilterByContinent(e)} >
                         <option value = "All">Select Continent</option>
@@ -107,7 +131,13 @@ function handleSortByName(e) {
                         <option value="default" disabled> Sort by Name </option>
                         <option value="asc">A-Z</option>
                         <option value="des">Z-A</option>
-                    </select>                   
+                    </select>  
+
+                     <select defaultValue={"default"} onChange={(e) => handleSortByPopulation(e)}>
+                        <option value="default" disabled>Sort by Population</option>
+                        <option value="des">Higher Population</option>
+                        <option value="asc">Lower Population</option>
+                    </select>                 
 
                 </div>  
 
