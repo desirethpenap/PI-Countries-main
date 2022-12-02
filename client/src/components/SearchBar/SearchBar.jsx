@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCountryByName } from '../../redux/actions';
+import { SetPagitionGlobal } from '../../redux/actions';
 import "./SearchBar.css"
 
 
@@ -34,12 +35,12 @@ export default function SearchBar ({setCurrentPage}) {
 
     return (
         <div className = 'searchContainer'>
-            <input  
+            <input className='input' 
             type = "text" 
             placeholder = "Search country by name" 
             value = {name}
             onChange = { e => handleInputChange(e)}></input>
-            <button type = "submit" onClick = {e => handleSubmit(e)}>Search</button>
+            <button className='buttonSearch' type = "submit" onClick = {e => handleSubmit(e)}>Search</button>
         </div>
     )
 }

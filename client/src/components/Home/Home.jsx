@@ -11,14 +11,8 @@ import './Home.css'
 
 export default function Home (){
 const dispatch = useDispatch();
-useEffect(()=>{
-    dispatch(getAllActivities());
-    dispatch(getAllCountries())
-},[dispatch])
-
 const allActivities = useSelector((state) => state.activities);
 const allCountries = useSelector((state) => state.countries)
-
 const [sortName, setSortName] = useState("");
 const [sortPopulation, setSortPopulation] = useState("");
 
@@ -28,6 +22,14 @@ const [countriesPerPage, setCountriesPerPage] = useState(9);
 
 const indexOfLastCountry = currentPage * countriesPerPage;
 const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
+
+
+useEffect(()=>{
+    dispatch(getAllActivities());
+    dispatch(getAllCountries())
+},[dispatch])
+
+
 
 
 
@@ -70,6 +72,8 @@ function handlePaginationClick(e) {
 }
 
 function handleFilterByActivity (e) {
+    e.preventDefault()
+    e.target.value === "none" ? dispatch(getAllCountries()):
     dispatch(filterByActivity(e.target.value));
     setCurrentPage(1)
 }
@@ -107,7 +111,7 @@ function handleSortByPopulation(e) {
                 
                 <div className = "filters">  
 
-                <select onChange = {e => handleFilterByActivity(e)}>
+                <select className="filter" onChange = {e => handleFilterByActivity(e)}>
                         <option value = "all">Select Activity</option>
                         {allActivities?.map((a) => {
                             return (
@@ -116,7 +120,7 @@ function handleSortByPopulation(e) {
                         })}
                     </select>             
 
-                    <select onChange = {e => handleFilterByContinent(e)} >
+                    <select className="filter" onChange = {e => handleFilterByContinent(e)} >
                         <option value = "All">Select Continent</option>
                         <option value = "Asia">Asia</option>
                         <option value = "South America">South America</option>
@@ -127,13 +131,13 @@ function handleSortByPopulation(e) {
                         <option value = "Africa">Africa</option>
                     </select>
 
-                    <select defaultValue = {"default"} onChange={(e) => handleSortByName(e)}>
+                    <select className="filter" defaultValue = {"default"} onChange={(e) => handleSortByName(e)}>
                         <option value="default" disabled> Sort by Name </option>
                         <option value="asc">A-Z</option>
                         <option value="des">Z-A</option>
                     </select>  
 
-                     <select defaultValue={"default"} onChange={(e) => handleSortByPopulation(e)}>
+                     <select className="filter" defaultValue={"default"} onChange={(e) => handleSortByPopulation(e)}>
                         <option value="default" disabled>Sort by Population</option>
                         <option value="des">Higher Population</option>
                         <option value="asc">Lower Population</option>
@@ -161,7 +165,8 @@ function handleSortByPopulation(e) {
                                 id = {c.id}
                                 name = {c.name}
                                 flag = {c.FlagImg}
-                                continent = {c.Continent}/>
+                                continent = {c.Continent}
+                                />
                             )
                         })
                         }

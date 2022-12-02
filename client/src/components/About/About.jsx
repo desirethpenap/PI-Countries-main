@@ -5,20 +5,17 @@ import './About.css';
 
 export default function About () {
     return (
-        <div>
+        <div className='aboutGrid'>
             <div className='navBarAbout'>
                 <NavBar />
-            </div>
-            <br></br>
-            <h1>Hello, dear reader!</h1>
-            <br></br>
-            <span>My name is Desireth and this my Individual Project for Henry's Web Development Course. <br></br>In this project, I develop a web integrating several technologies that I learn on the course.</span>
+            </div>            
+            <span className='presentation'>Hi reader! my name is Desireth and this my Individual Project for Henry's Web Development Course. <br></br>In this project, I develop a web integrating several technologies that I learn on the course.</span>
             <br></br>
             <br></br>
-            <span>This website was developed with:</span>
+            <span className='tecnologics'>This website was developed with:</span>
             <br></br>
             <br></br>
-            <ol>
+            <ol className='aboutTecnologics'>
                 <li>Javascript</li>
                 <br></br>
                 <li>HTML/CSS</li>

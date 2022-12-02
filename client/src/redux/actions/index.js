@@ -9,6 +9,8 @@ export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVTY";
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const SORT_BY_NAME = "SORT_BY_NAME";
 export const SORT_BY_POPULATION = "SORT_BY_POPULATION";
+export const LOADING = "LOADING";
+export const PAGINATION = "PAGINATION";
 
 
 export function getAllCountries() {
@@ -22,34 +24,43 @@ export function getAllCountries() {
     };
   }
 
-
-  export function getCountryByName(name){
+  export function getAllActivities(){
     return async function (dispatch){
-      try {
-        var json=await axios.get(`/countries?name=${name}`)
+        var json=await axios.get(`/activities`)
         return dispatch({
-          type: GET_COUNTRY_BY_NAME,
+          type: "GET_ALL_ACTIVITIES",
+          payload: json.data
+        });
+    }
+  } 
+
+  export function getCountryDetails  (id) {
+    return async function(dispatch){
+      try {
+        var json=await axios.get(`/countries/${id}`)  
+        return dispatch({
+          type: GET_COUNTRY_DETAILS,
           payload: json.data
         })
-      } catch (error) {
-        console.log(error)
-      }
+      } catch(error){
+        return dispatch({type:GET_COUNTRY_DETAILS, payload: {}});
     }
     }
+  }
 
-    export function getCountryDetails(id){
-      return async function(dispatch){
-        try {
-          var json=await axios.get(`/countries/${id}`)  
-          return dispatch({
-            type: GET_COUNTRY_DETAILS,
-            payload: json.data
-          })
-        } catch (error) {
-          console.log(error)
-        }
+    
+export const getCountryByName = (name) =>{
+  return async function(dispatch){
+      try{
+          let response = await axios.get(`/countries?name=${name}`);
+          return dispatch({type:GET_COUNTRY_BY_NAME, payload: response.data});
+      }catch(error){
+          return dispatch({type:GET_COUNTRY_BY_NAME, payload: error.message});
       }
-    }
+  };
+};
+
+  
 
     export const createActivity = (payload) => {
       return async function (dispatch) {
@@ -63,16 +74,7 @@ export function getAllCountries() {
   };
   
 
-  export function getAllActivities(){
-    return async function (dispatch){
-        var json=await axios.get(`/activities`)
-        return dispatch({
-          type: "GET_ALL_ACTIVITIES",
-          payload: json.data
-        });
-    }
-  } 
-
+ 
   
 export const filterByActivity = (payload) => {
   return {
@@ -105,6 +107,12 @@ export const sortByPopulation = (payload) => {
   }
 };
 
+export const loading = () => {
+  return {type: LOADING};
+};
 
+export const SetPagitionGlobal = (payload) => {
+  return {type: PAGINATION, payload}
+};
 
  

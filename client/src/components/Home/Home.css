@@ -35,6 +35,8 @@
     color: #252524;
     font-family: "Comic Sans MS", Gadget, sans-serif;
     position: relative;
+    margin-bottom: 20px;
+    margin-top: -20px;
 }
 
 .cards-content {    
@@ -49,10 +51,7 @@
     grid-template-rows: repeat(3, 1fr);
 }
 
-.searchBar{   
-    
-    justify-items: right;
-}
+
 
 .pagination {
     display: flex;
@@ -62,7 +61,7 @@
 
 
 
-.refreshButton {    
+.refreshButton {      
     padding: 17px 40px;
     border-radius: 50px;
     border: 0;
@@ -88,3 +87,29 @@ button:active {
     transform: translateY(10px);
     transition: 100ms;
    }
+
+   .filter{
+    color: #373538 solid;
+    font-weight:bold;
+    font-family: "Comic Sans MS", Gadget, sans-serif;
+    padding: 8px 30px;
+    border-radius: 50px;
+    border: 0;
+    background-color: rgb(90, 79, 248);
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all .5s ease;
+    opacity: 80%;   
+    margin-left: 5px;
+
+   }
+.filter:hover{
+    letter-spacing: 3px;
+    background-color: rgb(10, 54, 248);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(113, 12, 245) 0px 7px 29px 0px;
+
+
+}

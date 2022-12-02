@@ -1,0 +1,34 @@
+.aboutGrid {
+    background-image: url('C:\Users\decap\Desktop\PI-Countries-main\client\src\Img/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    gap: 10px;
+    grid-template-areas: 
+    "navBarAbout"
+    "contentAbout"
+    "buttonAboutHome";
+}
+
+.navBarAbout {
+    background: none;
+    
+    
+}
+
+.aboutTecnologics{
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.presentation{
+font-size: 30px;
+}
+
+.tecnologics{
+    font-size: 40px;
+}

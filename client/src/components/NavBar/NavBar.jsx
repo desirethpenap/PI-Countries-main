@@ -18,14 +18,8 @@ export default function NavBar () {
              
             <Link to = '/activities' className='navButton'>
                 Create Activity
-            </Link>
-           
-            
-           
-           
-
-
-                       
+            </Link>       
+                                   
         </div>
     )
 }
