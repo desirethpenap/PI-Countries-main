@@ -9,116 +9,108 @@ import SearchBar from "../SearchBar/SearchBar.jsx";
 import './Home.css'
 
 
-export default function Home (){
-const dispatch = useDispatch();
-const allActivities = useSelector((state) => state.activities);
-const allCountries = useSelector((state) => state.countries)
-const [sortName, setSortName] = useState("");
-const [sortPopulation, setSortPopulation] = useState("");
-
-
-const [currentPage, setCurrentPage] = useState(1);
-const [countriesPerPage, setCountriesPerPage] = useState(9);
-
-const indexOfLastCountry = currentPage * countriesPerPage;
-const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
-
-
-useEffect(()=>{
-    dispatch(getAllActivities());
-    dispatch(getAllCountries())
-},[dispatch])
-
-
-
-
-
-const findCurrentCountries = () => {
-    try {
-        return allCountries.slice(indexOfFirstCountry, indexOfLastCountry)
-    } catch (e) {
-        alert('Country not found');
+export default function Home () {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getAllActivities());
         dispatch(getAllCountries())
+    }, [dispatch])
+
+    const allActivities = useSelector((state) => state.activities);
+    const allCountries = useSelector((state) => state.countries);
+
+    const [sortName, setSortName] = useState("");
+    const [sortPopulation, setSortPopulation] = useState("");
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [countriesPerPage, setCountriesPerPage] = useState(9);
+
+    const indexOfLastCountry = currentPage * countriesPerPage;
+    const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
+
+    const findCurrentCountries = () => {
+        try {
+            return allCountries.slice(indexOfFirstCountry, indexOfLastCountry)
+        } catch (e) {
+            alert('Country not found');
+            dispatch(getAllCountries())
+        }
     }
-}
 
-const currentCountries = findCurrentCountries();
+    const currentCountries = findCurrentCountries();
 
-const pagination = (pageNumber) => {
-    if (pageNumber === 1) {
-        setCountriesPerPage(9);
-        setCurrentPage(pageNumber)
-    } else if (pageNumber > 25) {
-        setCountriesPerPage(10);
-        setCurrentPage(25)
-    } else {
-        setCountriesPerPage(10);
-        setCurrentPage(pageNumber)
+    const pagination = (pageNumber) => {
+        if (pageNumber === 1) {
+            setCountriesPerPage(9);
+            setCurrentPage(pageNumber)
+        } else if (pageNumber > 25) {
+            setCountriesPerPage(10);
+            setCurrentPage(25)
+        } else {
+            setCountriesPerPage(10);
+            setCurrentPage(pageNumber)
+        }
     }
-}
 
-function handleClick(e) {
-    e.preventDefault();
-    dispatch(getAllCountries());
-}
-
-function handlePaginationClick(e) {
-    let aux = currentPage;
-    if (e.target.id === "previous" && currentPage !== 1) {
-        setCurrentPage(--aux)
-    } else if (e.target.id === "next" && currentPage < 25 && currentCountries.length >= 9) {
-        setCurrentPage(++aux)
+    function handleClick(e) {
+        e.preventDefault();
+        dispatch(getAllCountries());
     }
-}
 
-function handleFilterByActivity (e) {
-    e.preventDefault()
-    e.target.value === "none" ? dispatch(getAllCountries()):
-    dispatch(filterByActivity(e.target.value));
-    setCurrentPage(1)
-}
+    function handlePaginationClick(e) {
+        let aux = currentPage;
+        if (e.target.id === "previous" && currentPage !== 1) {
+            setCurrentPage(--aux)
+        } else if (e.target.id === "next" && currentPage < 25 && currentCountries.length >= 9) {
+            setCurrentPage(++aux)
+        }
+    }
 
+    function handleFilterByActivity (e) {
+        dispatch(filterByActivity(e.target.value));
+        setCurrentPage(1)
+    }
 
+    function handleFilterByContinent (e) {
+        dispatch(filterByContinent(e.target.value));
+        setCurrentPage(1)
+    }
 
-function handleFilterByContinent (e) {
-    dispatch(filterByContinent(e.target.value));
-    setCurrentPage(1)
-}
+    function handleSortByName(e) {
+        e.preventDefault();
+        dispatch(sortByName(e.target.value));
+        setCurrentPage(1);
+        setSortName(`Sort ${e.target.value}`);
+    }
 
-function handleSortByName(e) {
-    e.preventDefault();
-    dispatch(sortByName(e.target.value));
-    setCurrentPage(1);
-    setSortName(`Sort ${e.target.value}`);
-}
+    function handleSortByPopulation(e) {
+        e.preventDefault();
+        dispatch(sortByPopulation(e.target.value));
+        setCurrentPage(1);
+        setSortPopulation(`Sort ${e.target.value}`);
+    }
 
-function handleSortByPopulation(e) {
-    e.preventDefault();
-    dispatch(sortByPopulation(e.target.value));
-    setCurrentPage(1);
-    setSortPopulation(`Sort ${e.target.value}`);
-}
+    return (
+        <div className = "HomeContainer">
+            <div className = "grid-container">
 
+                <NavBar className = "navBar" />
 
-  return (
+                <SearchBar className = "searchBar" setCurrentPage = {setCurrentPage}/>
 
-    <div className = "HomeContainer">
-        <div className = "grid-container">
-            <NavBar className = "navBar"/> 
-            <SearchBar className = "searchBar" setCurrentPage = {setCurrentPage}/>
+                <h1 className = "appTitle">
+                    Countries Henry App
+                </h1>
 
-                <h1 className = "appTitle"> Countries of the World Henry App</h1>            
-                
-                <div className = "filters">  
-
-                <select className="filter" onChange = {e => handleFilterByActivity(e)}>
+                <div className = "filters">
+                    <select className="filter" onChange = {e => handleFilterByActivity(e)}>
                         <option value = "all">Select Activity</option>
-                        {allActivities?.map((a) => {
+                        {allActivities?.map((e) => {
                             return (
-                                <option value = {a.name}>{a.name}</option>
+                                <option value = {e.name}>{e.name}</option>
                             )
                         })}
-                    </select>             
+                    </select>
 
                     <select className="filter" onChange = {e => handleFilterByContinent(e)} >
                         <option value = "All">Select Continent</option>
@@ -135,15 +127,15 @@ function handleSortByPopulation(e) {
                         <option value="default" disabled> Sort by Name </option>
                         <option value="asc">A-Z</option>
                         <option value="des">Z-A</option>
-                    </select>  
+                    </select>
 
-                     <select className="filter" defaultValue={"default"} onChange={(e) => handleSortByPopulation(e)}>
+                    <select className="filter" defaultValue={"default"} onChange={(e) => handleSortByPopulation(e)}>
                         <option value="default" disabled>Sort by Population</option>
                         <option value="des">Higher Population</option>
                         <option value="asc">Lower Population</option>
-                    </select>                 
+                    </select>
 
-                </div>  
+                </div>
 
                 <div className = 'pagination'>
                     <button className = 'previousNext' id = "previous" onClick = {e => {handlePaginationClick(e)}}>Previous</button>
@@ -155,7 +147,7 @@ function handleSortByPopulation(e) {
                         pagination = {pagination}
                     />
                     <button className = 'previousNext' id = "next" onClick = {e => {handlePaginationClick(e)}}>Next</button>
-                </div>             
+                </div>
 
                 <div className='cards-content'>
                     <div className = 'cards-grid'>
@@ -165,22 +157,20 @@ function handleSortByPopulation(e) {
                                 id = {c.id}
                                 name = {c.name}
                                 flag = {c.FlagImg}
-                                continent = {c.Continent}
-                                />
+                                continent = {c.Continent}/>
                             )
                         })
                         }
                     </div>
                 </div>
 
-                <div className = 'refreshButtonDiv'>           
+                <div className = 'refreshButtonDiv'>
                     <button className = "refreshButton" onClick = {e => {handleClick(e)}}>
                         Refresh Countries List
                     </button>
                 </div>
+            </div>
         </div>
+    )
 
-    </div>
-
-)
 }

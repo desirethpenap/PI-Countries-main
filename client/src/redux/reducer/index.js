@@ -7,8 +7,7 @@ import { FILTER_BY_ACTIVITY } from "../actions/index.js";
 import { FILTER_BY_CONTINENT } from "../actions/index.js";
 import { SORT_BY_NAME } from "../actions/index.js";
 import { SORT_BY_POPULATION } from "../actions/index.js";
-import { LOADING } from "../actions/index.js";
-import { PAGINATION } from "../actions/index.js";
+
 
 
 
@@ -17,137 +16,121 @@ const initialState = {
   allCountries: [],
   countries: [],
   countryDetail: [],
-  loading: true,
-  actualPage: 1,
+
  // filterByActivity: [],
 //filterByContinent: [], 
 
 }
 
 const rootReducer = (state = initialState, action) => {
-  switch (action.type) {
-    // Acá va tu código:
-    case PAGINATION:
-       return{
-        ...state,
-        actualpage: action.payload
-
-      }
-    case LOADING:
-       return{
-          ...state,
-          loading:true,
-        }
-    case GET_ALL_COUNTRIES:
-       return {
-              ...state,
-              loading:false,
-              allCountries: action.payload,
-              countries: action.payload          
-          } 
-    case GET_ALL_ACTIVITIES:
-       return {
-                ...state,
-                activities: action.payload                    
-            } 
-
-    case GET_COUNTRY_BY_NAME:
-        return {
-              ...state,
-              countries: action.payload          
-          }   
-      
-    case GET_COUNTRY_DETAILS:
-          return {
-            ...state,
-            loading:false,
-            countryDetail: action.payload
-          }
-    case CREATE_ACTIVITY:
-          return {
-            ...state,
-              activities: [...state.activities, action.payload]
-            }
-    case FILTER_BY_CONTINENT:  
-          const allcountries = state.allcountries;
-          const filterstatus = action.payload === "All"? allcountries :
-          allcountries.filter(country => country.continent === action.payload)
-          return{
-              ...state,
-              countries: filterstatus
-          };        
-   
-    case FILTER_BY_ACTIVITY:
-      const all_countries2 = state.allcountries;
-      const filtercountries = action.payload === "All"? 
-      all_countries2.filter(country => country.tours.length > 0): 
-      all_countries2.filter(country => country.tours.find(tour => 
-          tour.name === action.payload));
-      return {
-          ...state,
-          countries: filtercountries
-      };
-   
-    case SORT_BY_NAME: 
-    let sortedArraux1 = [];
-    let sortedArraux2 = [];  
-    if(action.payload === "up"){
-        sortedArraux1 = state.countries.sort((country1,country2)=>{
-            if(country1.name > country2.name) return 1;
-            if(country2.name > country1.name) return -1;
-            return 0});
-        sortedArraux2 = state.allcountries.sort((country1,country2)=>{
-            if(country1.name > country2.name) return 1;
-            if(country2.name > country1.name) return -1;
-            return 0});
-    }else{
-        sortedArraux1 = state.countries.sort((country1,country2)=>{
-            if(country1.name > country2.name) return -1;
-            if(country2.name > country1.name) return 1;
-            return 0});
-        sortedArraux2 = state.allcountries.sort((country1,country2)=>{
-            if(country1.name > country2.name) return -1;
-            if(country2.name > country1.name) return 1;
-            return 0});
-    }
-    return {
-        ...state,
-        countries: sortedArraux1,
-        allcountries: sortedArraux2
-    };
-    case SORT_BY_POPULATION:
-      let sortedBArraux1 = [];
-      let sortedBArraux2 = [];
-      if(action.payload === "less"){
-          sortedBArraux1 = state.countries.sort((country1,country2)=>{
-              if(country1.population > country2.population) return 1;
-              if(country2.population > country1.population) return -1;
-              return 0});
-          sortedBArraux2 = state.allcountries.sort((country1,country2)=>{
-              if(country1.population > country2.population) return 1;
-              if(country2.population > country1.population) return -1;
-              return 0});
-      }else{
-          sortedBArraux1 = state.countries.sort((country1,country2)=>{
-              if(country1.population > country2.population) return -1;
-              if(country2.population > country1.population) return 1;
-              return 0});
-          sortedBArraux2 = state.allcountries.sort((country1,country2)=>{
-              if(country1.population > country2.population) return -1;
-              if(country2.population > country1.population) return 1;
-              return 0});
-      }
-      return {
-          ...state,
-          countries: sortedBArraux1,
-          allcountries: sortedBArraux2
-      }
-
-      default: 
+    switch (action.type) {
+      // Acá va tu código:
+        case CREATE_ACTIVITY:
           return {
               ...state
-          }      
-  }
-};
-
-export default rootReducer;
+          }
+        case GET_ALL_ACTIVITIES:
+          return {
+              ...state,
+              activities: action.payload                    
+          } 
+        case GET_ALL_COUNTRIES:
+            return {
+                ...state,
+                allCountries: action.payload,
+                countries: action.payload          
+            } 
+        case GET_COUNTRY_DETAILS:
+            return {
+              ...state,
+              countryDetail: action.payload
+            }
+        case GET_COUNTRY_BY_NAME:
+            return {
+                ...state,
+                countries: action.payload          
+            } 
+        case FILTER_BY_ACTIVITY:
+            const toFilterByActivity = state.allCountries;
+            const activityFilter = toFilterByActivity.filter(c => c.Activities.forEach(e => {
+            if(e.name.toLowerCase()=== action.payload.toLowerCase())
+            return true; 
+            else{
+              return false;
+            }
+            }));
+                console.log('Filtro', activityFilter)
+              /*   toFilterByActivity.filter((e) =>
+                e.Activities &&
+                e.Activities.map((e) => e.name).includes(action.payload));   */              
+            return {
+                ...state,
+                countries: activityFilter
+            }
+          case FILTER_BY_CONTINENT:  
+            const toFilterByContinent = state.allCountries;
+            const filteredByContinent = action.payload === 'All' ? 
+                toFilterByContinent : 
+                toFilterByContinent.filter(c => c.Continent === action.payload)
+            return {
+                ...state,
+                countries: filteredByContinent
+            }; 
+        case SORT_BY_NAME: 
+            let sortedByName = action.payload === 'asc' ?
+                state.countries.sort((a, b) => {
+                  if(a.name > b.name) {
+                    return 1
+                  } else if (b.name > a.name) {
+                    return -1
+                  } else {
+                    return 0
+                  }}) : 
+                state.countries.sort((a, b) => {
+                  if(a.name > b.name) {
+                    return -1
+                  } else if (b.name > a.name) {
+                    return 1
+                  } else {
+                    return 0
+                  }}) 
+            return {
+                ...state,
+                allCountries: sortedByName,
+                countries: sortedByName
+            }
+        case SORT_BY_POPULATION:
+          let sortedByPopulation = action.payload === "asc" ? 
+              state.countries.sort((a, b) => {
+                  if (a.population > b.population) {
+                    return 1;
+                  }
+                  if (b.population > a.population) {
+                    return -1;
+                  }
+                    return 0;
+                    
+              })
+              : state.countries.sort((a, b) => {
+                  if (a.population > b.population) {
+                    return -1;
+                  }
+                  if (b.population > a.population) {
+                    return 1;
+                  }
+                    return 0;
+              });
+            return {
+                ...state,
+                allCountries: sortedByPopulation,
+                countries: sortedByPopulation,
+            };   
+      
+        default: 
+            return {
+                ...state
+            }      
+    }
+  };
+  
+  export default rootReducer;

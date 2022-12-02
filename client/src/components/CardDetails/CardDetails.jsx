@@ -7,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import './CardDetails.css';
 
+
 export default function CardDetails (props) {
     const dispatch = useDispatch();
 
@@ -18,15 +19,16 @@ export default function CardDetails (props) {
 
     useEffect(() => {
         const chargeCountry = async() => {   
-            await dispatch(getCountryDetails(props.match.params.id)) 
-            setCountryLoad(false)   
+            await dispatch(getCountryDetails(props.R)) 
+            setCountryLoad(false)  
+            console.log (props.R)
             };
         chargeCountry() 
-    }, [dispatch, props.match.params.id]);
+    }, [dispatch, props.R]);
 
     function checkActivities () {
         try {
-            if (myCountry.activities.length) {
+            if (myCountry.Activities.length) {
                 return (
                     <h3><b>Activities: </b></h3>
                 )
@@ -34,8 +36,7 @@ export default function CardDetails (props) {
                 return ""
             }
         } catch (e) {
-            alert('Country not Found');
-            history.push('/404')
+         
         }
     }
 
@@ -50,7 +51,7 @@ export default function CardDetails (props) {
                 <p>Loading...</p> :                 
                 <div>
                     <div className = "flagDetails">
-                        <img src = {myCountry.flag} alt="country flag"/>
+                        <img src = {myCountry.FlagImg} alt="country flag"/>
                     </div>
                     <br></br>
                     <div className = 'countryDetailsBody'>
@@ -59,13 +60,13 @@ export default function CardDetails (props) {
                             <br></br>
                             <h2>Id: {myCountry.id}</h2>
                             <br></br>
-                            <h3>Capital: {myCountry.capital}</h3>
+                            <h3>Capital: {myCountry.Capital}</h3>
                             <br></br>
-                            <h3>Subregion: {myCountry.subregion}</h3>
+                            <h3>Subregion: {myCountry.Subregion}</h3>
                             <br></br>
-                            <h3>Area: {myCountry.area}</h3>
+                            <h3>Area: {myCountry.Area}</h3>
                             <br></br>
-                            <h3>Population: {myCountry.population}</h3>
+                            <h3>Population: {myCountry.Population}</h3>
                             <br></br>
                         </div>
                         <br></br>
@@ -74,7 +75,7 @@ export default function CardDetails (props) {
                         <div className = 'coutryActivities'>
                             {checkActivities()}
                             <br></br>
-                            {myCountry.activities?.map(e => <div>
+                            {myCountry.Activities?.map(e => <div>
                                 <ul>
                                     <li>Name: {e.name}</li>
                                     <br></br>

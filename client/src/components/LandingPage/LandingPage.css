@@ -22,9 +22,7 @@
 
 
 .LandingButton { 
-    position: fixed;
-    bottom: 100px;
-    left: 580px;         
+    margin-top: 500px;      
     padding: 17px 40px;
     border-radius: 50px;
     border: 0;
