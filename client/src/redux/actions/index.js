@@ -5,7 +5,7 @@ export const GET_COUNTRY_DETAILS = "GET_COUNTRY_DETAILS";
 export const GET_COUNTRY_BY_NAME = "GET_COUNTRY_BY_NAME";
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
-export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVTY";
+export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const SORT_BY_NAME = "SORT_BY_NAME";
 export const SORT_BY_POPULATION = "SORT_BY_POPULATION";
@@ -57,6 +57,7 @@ export function getCountryByName(name){
       })
     } catch (error) {
       console.log(error)
+      alert('Country not Found');
     }
   }
   }
@@ -115,7 +116,7 @@ export function getAllActivities(){
 export const filterByActivity = (payload) => {
     return {
       type: "FILTER_BY_ACTIVITY",
-      payload
+      payload: payload,
     }
 };
 
@@ -134,10 +135,10 @@ export const sortByName = (payload) => {
 };
   
 export const sortByPopulation = (payload) => {
-    return {
-      type: "SORT_BY_POPULATION",
-      payload
-    }
+  return {
+    type: "SORT_BY_POPULATION",
+    payload
+  }
 };
 
 

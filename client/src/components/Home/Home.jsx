@@ -1,7 +1,9 @@
 import React from "react";
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { getAllActivities, getAllCountries, filterByActivity, filterByContinent, sortByName, sortByPopulation } from '../../redux/actions/index';
+import { getAllActivities, getAllCountries, filterByActivity, filterByContinent } from '../../redux/actions/index';
+import { sortByPopulation } from "../../redux/actions/index";
+import { sortByName } from "../../redux/actions/index";
 import NavBar from '../NavBar/NavBar.jsx';
 import Card from '../Card/Card.jsx';
 import Pagination from '../Pagination/Pagination.jsx';
@@ -68,6 +70,7 @@ export default function Home () {
 
     function handleFilterByActivity (e) {
         dispatch(filterByActivity(e.target.value));
+        console.log(e.target.value)
         setCurrentPage(1)
     }
 
@@ -89,6 +92,7 @@ export default function Home () {
         setCurrentPage(1);
         setSortPopulation(`Sort ${e.target.value}`);
     }
+ 
 
     return (
         <div className = "HomeContainer">
@@ -101,7 +105,7 @@ export default function Home () {
                 <h1 className = "appTitle">
                     Countries Henry App
                 </h1>
-
+                
                 <div className = "filters">
                     <select className="filter" onChange = {e => handleFilterByActivity(e)}>
                         <option value = "all">Select Activity</option>

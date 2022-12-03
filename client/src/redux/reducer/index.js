@@ -16,6 +16,8 @@ const initialState = {
   allCountries: [],
   countries: [],
   countryDetail: [],
+ 
+
 
  // filterByActivity: [],
 //filterByContinent: [], 
@@ -51,14 +53,11 @@ const rootReducer = (state = initialState, action) => {
                 countries: action.payload          
             } 
         case FILTER_BY_ACTIVITY:
-            const toFilterByActivity = state.allCountries;
-            const activityFilter = toFilterByActivity.filter(c => c.Activities.forEach(e => {
-            if(e.name.toLowerCase()=== action.payload.toLowerCase())
-            return true; 
-            else{
-              return false;
-            }
-            }));
+            const toFilterByActivity = state.countries.filter(e => e.name)
+            const activityFilter = toFilterByActivity.filter(c => {
+              return c.Activities.some(e => e.name === action.payload)
+            });
+
                 console.log('Filtro', activityFilter)
               /*   toFilterByActivity.filter((e) =>
                 e.Activities &&
@@ -102,20 +101,20 @@ const rootReducer = (state = initialState, action) => {
         case SORT_BY_POPULATION:
           let sortedByPopulation = action.payload === "asc" ? 
               state.countries.sort((a, b) => {
-                  if (a.population > b.population) {
+                  if (a.Population > b.Population) {
                     return 1;
                   }
-                  if (b.population > a.population) {
+                  if (b.Population > a.Population) {
                     return -1;
                   }
                     return 0;
                     
               })
               : state.countries.sort((a, b) => {
-                  if (a.population > b.population) {
+                  if (a.Population > b.Population) {
                     return -1;
                   }
-                  if (b.population > a.population) {
+                  if (b.Population > a.Population) {
                     return 1;
                   }
                     return 0;

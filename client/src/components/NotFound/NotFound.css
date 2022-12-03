@@ -1,0 +1,76 @@
+
+.girdcontainer{
+    background-image: url("C:\Users\decap\Desktop\PI-Countries-main\client\src\Img\notfound.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    
+    
+    
+}
+
+.buttonFound {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    padding: 17px 40px;
+    border-radius: 50px;
+    border: 0;
+    background-color: rgb(14, 13, 13);    
+    color: white;
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all .5s ease;
+    margin-top: 10px;
+    margin-bottom: 80px;
+   justify-content: center;
+   justify-items: center;
+   
+   }
+   
+.buttonFound:hover {
+    letter-spacing: 3px;
+    background-color: rgb(220, 24, 138);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+   }
+   
+   .buttonDetails:active{
+    letter-spacing: 3px;
+    background-color: rgb(220, 24, 187);
+    color: hsl(0, 0%, 100%);
+    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+
+}
+
+.buttonDetailsLocation {
+    display: flex;
+    justify-content: center;
+}
+.error{
+    font-size: 300px;
+    margin-top: auto;
+    margin-bottom: auto;
+   
+  }
+
+.message{
+    font-size: 30px;
+    margin-top: -230px;
+    margin-bottom: 523px;
+    
+   
+
+}
+
+  
+
+
