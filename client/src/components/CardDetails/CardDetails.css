@@ -9,6 +9,8 @@
     "countryActivities";    
     background-image: url("C:\Users\decap\Desktop\PI-Countries-main\client\src\Img\background.png");
     background-size: cover;
+    background-repeat: no-repeat;
+    grid-template-rows: auto;
     
     
 } 
@@ -70,8 +72,7 @@
 
 
 .countryDetailsBody{ 
-    justify-content: space-between;
-   
+    justify-content: space-between;   
    
 }
 
@@ -115,8 +116,7 @@
 .contentDetails {
     grid-template-rows: 100px, 100px;    
     display: grid;
-    gap: 100 px;
-         
+    gap: 100 px;        
         
         
 }
@@ -136,7 +136,7 @@
 .countryActivities{    
         display: flex;
         margin: auto;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         align-content: center;
         margin-top: 25px;
@@ -157,7 +157,7 @@
 .countryDetails{
     display: flex;
     margin: auto;
-    flex-direction: column;
+    flex-direction:column;
     align-items: center;
     align-content: center;
     margin-top: 25px;

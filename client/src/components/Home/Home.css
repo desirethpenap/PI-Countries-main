@@ -1,6 +1,16 @@
+.HomeContainer{    
+    background-image: url('C:\Users\decap\Desktop\PI-Countries-main\client\src\Img/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height:auto;
+
+}
 .grid-container {
+   
     display: grid;
     gap: 30px;
+    height:auto;
     grid-template-areas: 
     "navBar"
     "appTitle"
@@ -8,20 +18,6 @@
     "pagination"
     "cards-content"
     "refreshButtonDiv";
-}
-
-@media (min-width: 600px) {
-    .grid-container {
-        grid-template-rows: 75px 30px 100px 50px 50px auto 50px;
-    }
-}
-
-.HomeContainer {
-    background-image: url('C:\Users\decap\Desktop\PI-Countries-main\client\src\Img/background.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    
 }
 
 .navBar {
@@ -35,12 +31,13 @@
     font-family: "Comic Sans MS", Gadget, sans-serif;
     position: relative;
     margin-bottom: 20px;
-    margin-top: -20px;
+    margin-top: -100px;
 }
 
 .cards-content {    
     display: flex;
     justify-content: space-around;
+    margin-bottom: 50px;
 }
 
 .cards-grid {
@@ -56,12 +53,17 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-bottom: 3px;
+    margin-top: -50px;
 }
 
 
 
 .refreshButton {      
-    padding: 17px 40px;
+    color: #373538 solid;
+    font-weight:bold;
+    font-family: "Comic Sans MS", Gadget, sans-serif;
+    padding: 8px 20px;
     border-radius: 50px;
     border: 0;
     background-color: white;
@@ -70,6 +72,9 @@
     text-transform: uppercase;
     font-size: 15px;
     transition: all .5s ease;
+    opacity: 80%;
+    margin-left: 5px;     
+    margin-bottom: 50px;
 }
 
 .refreshButton:hover {
@@ -91,7 +96,7 @@ button:active {
     color: #373538 solid;
     font-weight:bold;
     font-family: "Comic Sans MS", Gadget, sans-serif;
-    padding: 8px 30px;
+    padding: 8px 20px;
     border-radius: 50px;
     border: 0;
     background-color: rgb(90, 79, 248);
@@ -100,8 +105,9 @@ button:active {
     text-transform: uppercase;
     font-size: 15px;
     transition: all .5s ease;
-    opacity: 80%;   
-    margin-left: 5px;
+    opacity: 80%;
+    margin-left: 5px;     
+    margin-bottom: 50px;
 
    }
 .filter:hover{
@@ -109,6 +115,14 @@ button:active {
     background-color: rgb(10, 54, 248);
     color: hsl(0, 0%, 100%);
     box-shadow: rgb(113, 12, 245) 0px 7px 29px 0px;
+
+
+}
+.filters{
+    display:flex;  
+    justify-content: center; 
+    margin-top: -10px;
+    
 
 
 }

@@ -3,9 +3,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     justify-content: center;
-    padding: 10px;  
-   justify-content: center;
-   margin-left: 700px;
+    padding: 10px;     
+    margin-left: auto;
 }
 
 .navButton {    
@@ -18,7 +17,7 @@
 }
 
 .navButton:hover {
-    background: #8a43aa;
+    background: #79f3fc;
     text-decoration: none;
     border-radius: 50px;
     opacity: 50%;

@@ -1,32 +1,24 @@
-.p {
-    color:red
+.navBarCreate {
+    display: flex;
+    justify-content: space-between;
 }
 
 .createActivityGrid {
     background-image: url("C:\Users\decap\Desktop\PI-Countries-main\client\src\Img\create-activity.png");
     background-size: cover;
     display: grid;
-    grid-template-areas: 
-    "navBarCreate"
-    "contentCreate"
-    "buttonCreateHome"
+ 
     
 }
-
-@media (min-width: 3000px) {
+@media (min-width: 2000px) {
     .createActivityGrid {
-        grid-template-rows: 50px 75px 50px;
+        grid-template-rows: 10px 90px 10px;
         
     }
 }
 
-.navBarCreate {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding: 25px;
-    background: none;
-}
+
+
 
 .buttonCreateHome { 
     margin-top: 20px;
@@ -105,5 +97,7 @@
 .createButton:active {
     transform: scale(0.9);
   }
-
+  .p {
+    color:red
+}
  

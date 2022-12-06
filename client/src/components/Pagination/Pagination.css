@@ -1,55 +1,54 @@
 .paginationBar {
-    display: flex;
-    justify-content: center;
-    position: relative; 
-    background: none;  
+  display: flex;
+  justify-content: center;
+  position: relative; 
+  background: none;  
 }
 
 .paginationNumber {
-  width: 30px;
-  height: 30px;
-  border: 1px solid #d298e9;
-  background:  #B962EB;
-  opacity: 70%;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  transition: width 0.2s ease-in-out;
-  font-weight: bold; 
-  justify-items: center; 
-  font-family: "Comic Sans MS", Gadget, sans-serif;
-  font-size: medium; 
-  
+width: 30px;
+height: 30px;
+border: 1px solid #d298e9;
+background:  #B962EB;
+opacity: 70%;
+border-radius: 10px;
+overflow: hidden;
+position: relative;
+transition: width 0.2s ease-in-out;
+font-weight: bold; 
+justify-items: center; 
+font-family: "Comic Sans MS", Gadget, sans-serif;
+font-size: medium; 
+
 }
 
 button::before {    
-    background-size: 100%;
-    background-repeat: no-repeat;
-    color: transparent;
-    position: relative;
-    width: 50px;
-    height: 50px;
-    display: block;
-  }
-.previousNext{
-  width: 80px;
-  height: 40px;
-  border: 1px solid #d298e9;
-  background:  #B962EB;
-  opacity: 70%;
-  border-radius: 10px;
-  overflow: hidden;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: transparent;
   position: relative;
-  transition: width 0.2s ease-in-out;
-  font-weight: bold;  
-  justify-items: center; 
-  margin-top: 10px;
-  margin-left: 10px;
-  margin-right: -30px;
-  font-family: "Comic Sans MS", Gadget, sans-serif;
-  font-size: medium;
+  width: 50px;
+  height: 50px;
+  display: block;
+}
+.previousNext{
+width: 80px;
+height: 40px;
+border: 1px solid #d298e9;
+background:  #B962EB;
+opacity: 70%;
+border-radius: 10px;
+overflow: hidden;
+position: relative;
+transition: width 0.2s ease-in-out;
+font-weight: bold;  
+justify-items: center; 
+margin-top: 10px;
+margin-left: 10px;
+margin-right: -30px;
+font-family: "Comic Sans MS", Gadget, sans-serif;
+font-size: medium;
 
 }
 
 
- 

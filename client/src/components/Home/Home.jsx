@@ -138,9 +138,13 @@ export default function Home () {
                         <option value="des">Higher Population</option>
                         <option value="asc">Lower Population</option>
                     </select>
+                    <div className = 'refreshButtonDiv'>
+                    <button className = "refreshButton" onClick = {e => {handleClick(e)}}>
+                        Refresh Countries
+                    </button>
+                        </div>
 
                 </div>
-
                 <div className = 'pagination'>
                     <button className = 'previousNext' id = "previous" onClick = {e => {handlePaginationClick(e)}}>Previous</button>
                     <Pagination
@@ -151,8 +155,8 @@ export default function Home () {
                         pagination = {pagination}
                     />
                     <button className = 'previousNext' id = "next" onClick = {e => {handlePaginationClick(e)}}>Next</button>
-                </div>
-
+                </div>                
+               
                 <div className='cards-content'>
                     <div className = 'cards-grid'>
                         {currentCountries && currentCountries?.map((c) => {
@@ -167,12 +171,9 @@ export default function Home () {
                         }
                     </div>
                 </div>
+                
 
-                <div className = 'refreshButtonDiv'>
-                    <button className = "refreshButton" onClick = {e => {handleClick(e)}}>
-                        Refresh Countries List
-                    </button>
-                </div>
+                
             </div>
         </div>
     )
