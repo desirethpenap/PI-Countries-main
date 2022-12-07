@@ -9,19 +9,10 @@ export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const SORT_BY_NAME = "SORT_BY_NAME";
 export const SORT_BY_POPULATION = "SORT_BY_POPULATION";
+export const PAGINATION = "PAGINATION";
 
 
 
-
-// export const getAllCountries = () => async dispatch => {
-//   return fetch('/countries')
-//   .then(response => response.json())
-//   .then(json => {
-//       dispatch({ 
-//           type: GET_ALL_COUNTRIES, 
-//           payload: json })
-//   })
-// };
 
 export function getAllCountries() {
   return async function (dispatch) {
@@ -33,19 +24,7 @@ export function getAllCountries() {
   };
 }
 
-// export const getCountryByName = (name) => async dispatch => {
-//     try {
-//       return fetch(`/countries?name=${name}`)
-//       .then(response => response.json())
-//       .then(json => {
-//           dispatch({ 
-//               type: GET_COUNTRY_BY_NAME, 
-//               payload: json })
-//           })
-//     } catch (e) {      
-//         alert(e)
-//     }    
-// };
+
 
 export function getCountryByName(name){
   return async function (dispatch){
@@ -62,19 +41,7 @@ export function getCountryByName(name){
   }
   }
 
-// export const getCountryDetails = (id) => async dispatch => {
-//   try {
-//     return fetch(`/countries/${id}`)
-//     .then(response => response.json())
-//     .then(json => {
-//         dispatch({ 
-//             type: GET_COUNTRY_DETAILS, 
-//             payload: json})
-//         })
-//   } catch (e) {      
-//       alert(e)
-//   }    
-// };
+
 
 export function getCountryDetails(id){
   return async function(dispatch){
@@ -140,5 +107,9 @@ export const sortByPopulation = (payload) => {
     payload
   }
 };
+
+export const globalPagination = (payload) => {
+  return {type : PAGINATION, payload}
+}
 
 

@@ -7,6 +7,7 @@ import { FILTER_BY_ACTIVITY } from "../actions/index.js";
 import { FILTER_BY_CONTINENT } from "../actions/index.js";
 import { SORT_BY_NAME } from "../actions/index.js";
 import { SORT_BY_POPULATION } from "../actions/index.js";
+import { PAGINATION } from "../actions/index.js";
 
 
 
@@ -16,6 +17,7 @@ const initialState = {
   allCountries: [],
   countries: [],
   countryDetail: [],
+  actualPage: 1,
  
 
 
@@ -27,6 +29,11 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
       // Acá va tu código:
+      case PAGINATION:
+        return {
+          ...state,
+          actualPage: action.payload
+        }
         case CREATE_ACTIVITY:
           return {
               ...state

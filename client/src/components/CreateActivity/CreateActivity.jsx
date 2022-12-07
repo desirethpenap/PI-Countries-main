@@ -223,7 +223,8 @@ export default function CreateActivity () {
             <br></br>
                 <NavLink to = '/home'>
                     <button className="buttonCreateHome">Back to Home</button>
-                </NavLink>            
+                </NavLink>  
+                         
         </div>
     )
 }

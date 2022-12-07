@@ -43,7 +43,7 @@ export default function CardDetails (props) {
     }
 
     return (
-        <div className = 'cardDetailsGrid'>
+        <div className = 'cardDetails'>
             <div className = 'navBarDetails'>
                 <NavBar />
             </div>
@@ -55,10 +55,7 @@ export default function CardDetails (props) {
                     <div className = "flagDetails">
                         <img className="flagimg" src = {myCountry.FlagImg} alt="country flag"/>
                         <h1 className="countryName">{myCountry.name}</h1>
-                    </div>
-                    <br></br>
-                    <div className = 'countryDetailsBody'>
-                            <div className = "countryDetails">                   
+                        <div className = "countryDetails">                  
                                     
                                     <br></br>
                                     <h2 className="datas">ID: {myCountry.id}</h2>
@@ -71,7 +68,10 @@ export default function CardDetails (props) {
                                     
                                     <h3 className="people">Population: {myCountry.Population}</h3>
                                     <br></br>
-                                </div>
+                        </div>
+                    </div>
+                    <br></br>                 
+                           
                             <div className = 'countryActivities'>
                                     {checkActivities()}
                                     <br></br>
@@ -94,15 +94,15 @@ export default function CardDetails (props) {
                       
                         <br></br>
                         <br></br>
-                        <br></br>
+                        <div className = 'buttonDetailsLocation'>
+                        <NavLink to = '/home' className = "buttonDetails">Back to Home</NavLink>
+                        </div>                                 
                       
-                    </div>                  
+                                     
                 </div>                
             }            
             </div>
-            <div className = 'buttonDetailsLocation'>
-            <NavLink to = '/home' className = "buttonDetails">Back to Home</NavLink>
-            </div>            
+            
         </div>
     )   
 }
