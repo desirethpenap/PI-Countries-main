@@ -43,60 +43,44 @@ export default function CardDetails (props) {
     }
 
     return (
-        <div className = 'cardDetails'>
-      
-            <div className="contentDetails">
+        <div className = 'cardDetails'>      
             {
                 countryLoad ?
                 <p>Loading...</p> :                 
-                <div>
+                <>
                     <div className = "flagContainer">
                         <img className="flagimg" src = {myCountry.FlagImg} alt="country flag"/> 
-                         <h1 className="countryName">{myCountry.name}</h1>               
-                                    <br></br>
-
+                         <h1 className="countryName">{myCountry.name}</h1>              
                     </div>
-                    <div className="dataContainer">
-                        <div className = "rowContainer"> 
+                 <div className="dataContainer">
+                        <div className = "cardDetailContainer"> 
                                   
-                                    <h2 className="idtitle">ID: {myCountry.id}</h2>
-                                    
-                                    <h3 className="idtitle">Capital: {myCountry.Capital}</h3>
-                                
-                                    <h3 className="idtitle">Subregion: {myCountry.Subregion}</h3>
-                                    
-                                    <h3 className="idtitle">Area: {myCountry.Area}</h3>
-                                    
-                                    <h3 className="idtitle">Population: {myCountry.Population}</h3>
-                                    <br></br>
+                                    <h2>ID: {myCountry.id}</h2>                                    
+                                    <h3>Capital: {myCountry.Capital}</h3>                                
+                                    <h3>Subregion: {myCountry.Subregion}</h3>                                    
+                                    <h3>Area: {myCountry.Area}</h3>                                    
+                                    <h3>Population: {myCountry.Population}</h3>
+                                   
                         </div>
                    
-                               <br></br>
-                               <br></br>   
-                               <br></br>  
-                               <br></br>                        
+                                                    
                            
-                            <div className = 'ActivityContainer'>
-                                <h3>Activities</h3>
-
-                                    {checkActivities()}
-                                    <br></br>
+                            <div className = 'cardDetailContainer'>
+                                  {checkActivities()}
+                                   
                                     {myCountry.Activities?.map(e => <div>
                                         <ul>
-                                            <li className="idtitle">Name: {e.name}</li>
-                                            <br></br>
-                                            <li className="idtitle">Difficulty: {e.difficulty}</li>
-                                            <br></br>
-                                            <li className="idtitle">Duration: {e.duration}</li>
-                                            <br></br>
+                                            <li className="idtitle">Name: {e.name}</li>                                          
+                                            <li className="idtitle">Difficulty: {e.difficulty}</li>                                           
+                                            <li className="idtitle">Duration: {e.duration}</li>                                            
                                             <li className="idtitle">Season: {e.season}</li>
-                                            <br></br>                                            
+                                                                                       
                                         </ul>
                                     </div>
                                     )}
                                     <div>                                   
                                         <Link to={{pathname: "/activities"}}>
-                                        <button>Create New Activity</button>
+                                        <button className="btoncreate">Create New Activity</button>
                                         </Link>
                                     </div>
 
@@ -109,9 +93,9 @@ export default function CardDetails (props) {
                         </div>                                 
                       
                    </div>                  
-                </div>                
+                </>                
             }            
-            </div>
+           
             
         </div>
     )   

@@ -9,7 +9,7 @@
 width: 30px;
 height: 30px;
 border: 1px solid #d298e9;
-background:  #B962EB;
+background:  #9262eb;
 opacity: 70%;
 border-radius: 10px;
 overflow: hidden;
@@ -20,6 +20,10 @@ justify-items: center;
 font-family: "Comic Sans MS", Gadget, sans-serif;
 font-size: medium; 
 
+}
+.paginationNumber button:focus-visible{
+  background-color: aqua;
+  color: aquamarine;
 }
 
 button::before {    
@@ -35,7 +39,7 @@ button::before {
 width: 80px;
 height: 40px;
 border: 1px solid #d298e9;
-background:  #B962EB;
+background:  #6282eb;
 opacity: 70%;
 border-radius: 10px;
 overflow: hidden;
@@ -52,3 +56,4 @@ font-size: medium;
 }
 
 
+ 

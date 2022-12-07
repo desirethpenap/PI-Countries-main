@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "../NavBar/NavBar";
 import { NavLink } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -131,7 +130,7 @@ export default function CreateActivity () {
     return (
         <div className = 'createActivityGrid'>
             <div className = 'navBarCreate'>    
-                <NavBar />
+                
             </div>
             <div className = "contentCreate">            
                 <h1>Create your Activity!</h1>

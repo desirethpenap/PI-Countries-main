@@ -10,8 +10,6 @@ import { SORT_BY_POPULATION } from "../actions/index.js";
 import { PAGINATION } from "../actions/index.js";
 
 
-
-
 const initialState = {    
   activities: [],
   allCountries: [],
@@ -46,8 +44,8 @@ const rootReducer = (state = initialState, action) => {
         case GET_ALL_COUNTRIES:
             return {
                 ...state,
-                allCountries: action.payload,
-                countries: action.payload          
+                allCountries: action.payload, //es mi copia
+                countries: action.payload     //es que se renderiza      
             } 
         case GET_COUNTRY_DETAILS:
             return {
@@ -59,20 +57,29 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 countries: action.payload          
             } 
-        case FILTER_BY_ACTIVITY:
-            const toFilterByActivity = state.countries.filter(e => e.name)
+   /*         case FILTER_BY_ACTIVITY:
+            const toFilterByActivity = state.allCountries.filter(e => e.name)
             const activityFilter = toFilterByActivity.filter(c => {
               return c.Activities.some(e => e.name === action.payload)
             });
 
                 console.log('Filtro', activityFilter)
-              /*   toFilterByActivity.filter((e) =>
-                e.Activities &&
-                e.Activities.map((e) => e.name).includes(action.payload));   */              
+                          
             return {
                 ...state,
                 countries: activityFilter
-            }
+            }  */
+
+            case FILTER_BY_ACTIVITY:            
+            const activities = state.allCountries;
+            const countryactivity = action.payload ==="All"? 
+            activities.filter(c => c.Activities.length > 0):
+            activities.filter(c => c.Activities.find(a => a.name === action.payload));
+              return{
+                ...state,
+                countries: countryactivity
+              }; 
+
           case FILTER_BY_CONTINENT:  
             const toFilterByContinent = state.allCountries;
             const filteredByContinent = action.payload === 'All' ? 

@@ -108,7 +108,7 @@ export default function Home () {
                 
                 <div className = "filters">
                     <select className="filter" onChange = {e => handleFilterByActivity(e)}>
-                        <option value = "all">Select Activity</option>
+                        <option value = "All">Select Activity</option>
                         {allActivities?.map((e) => {
                             return (
                                 <option value = {e.name}>{e.name}</option>
