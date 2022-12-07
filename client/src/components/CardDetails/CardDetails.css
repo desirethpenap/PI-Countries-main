@@ -1,18 +1,86 @@
 .cardDetails{
-    margin: 0;
-    padding: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
     background-image: url("C:\Users\decap\Desktop\PI-Countries-main\client\src\Img\background.png");
-    background-size: cover;
-    background-repeat: no-repeat; 
-    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover; 
+    -o-background-size: cover;
+    background-size: cover; 
 }
 
 .contentDetails{
-    width: 100%;
-    height: 100%;
-    font-family: sans-serif;
-    letter-spacing: 0.03em;
-    line-height: 1.6;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    align-items: center;
+    align-content: space-between;
+}
+
+
+.flagContainer{
+    display: flex;
+    margin: auto;
+    margin-top: 25px;
+    width: 500px;
+    height: 500px;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    opacity: 90%;
+    box-shadow: 5px 5px 8px #cbced1, -5px -5px 8px white;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.flagimg{
+    width: 350px;
+    height: 250px;
+}
+
+.dataContainer{
+    display: flex;
+    margin: auto;
+    margin-top: 25px;
+    width: 800px;
+    height: 500px;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ecf0f3;
+    opacity: 90%;
+    box-shadow: 5px 5px 8px #cbced1, -5px -5px 8px white;
+    justify-content: flex-start;
+    flex-direction: column;   
+}
+
+.rowContainer{
+    margin-left: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+}
+
+.countryname{
+    text-decoration: none;
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-transform: uppercase;
+    font-size: 2.5vw;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color:black;
+    height: 45px;
+    margin-bottom: 50px;
+}
+.idtitle{
+    margin-right: 15px;
 }
 
 
@@ -47,5 +115,11 @@
     transform: translateY(10px);
     transition: 100ms;
 
+}
+
+.ActivityContainer{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 450px;
 }
 
