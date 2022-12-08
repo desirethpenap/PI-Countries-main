@@ -129,16 +129,14 @@ export default function CreateActivity () {
 
     return (
         <div className = 'createActivityGrid'>
-            <div className = 'navBarCreate'>    
-                
-            </div>
+            <h1>Create your Activity!</h1>
             <div className = "contentCreate">            
-                <h1>Create your Activity!</h1>
-                <br></br>
+                
+              
                 <form onSubmit = {e => handleSubmit(e)}>
                     <div>
-                        <label>Activity: </label>
-                        <input
+                        <label className="createActTittle">Activity: </label>
+                        <input className="btoncreatetittle"
                         type = "text"
                         value = {input.name}
                         name = "name"
@@ -150,8 +148,8 @@ export default function CreateActivity () {
                     </div>
                     <br></br>
                     <div>
-                        <label>Difficulty: </label>
-                        <select defaultValue = {'default'} name = "difficulty" onChange = {e => handleSelect(e)}>
+                        <label className="createActTittle">Difficulty: </label>
+                        <select className="btoncreatetittle" defaultValue = {'default'} name = "difficulty" onChange = {e => handleSelect(e)}>
                             <option value ='default' disabled>Difficulty</option>
                             <option value ="1">1</option>
                             <option value ="2">2</option>
@@ -167,8 +165,8 @@ export default function CreateActivity () {
                     </div>
                     <br></br>
                     <div>
-                        <label>Duration: </label>
-                        <input
+                        <label className="createActTittle">Duration: </label>
+                        <input className="btoncreatetittle"
                         type = "text"
                         value = {input.duration}
                         name = "duration"
@@ -180,8 +178,8 @@ export default function CreateActivity () {
                     </div>
                     <br></br>
                     <div>
-                        <label>Season: </label>
-                        <select defaultValue = {'default'} name = "season" onChange = {e => handleSelect(e)}>
+                        <label className="createActTittle">Season: </label>
+                        <select className="btoncreatetittle" defaultValue = {'default'} name = "season" onChange = {e => handleSelect(e)}>
                             <option value='default' disabled>Season</option>
                             <option value="summer">Summer</option>
                             <option value="winter">Winter</option>
@@ -189,14 +187,14 @@ export default function CreateActivity () {
                             <option value="spring">Spring</option>
                         </select>
                     </div>
-                    <div>
+                    <div className="btoncreatetittle">
                     {errors.season && (
                         <p className = "p">{errors.season}</p>
                     )}
                     </div>
                     <br></br>
                     <div>
-                        <select defaultValue = {'default'} name = "relatedCountries" onChange = {e => handleCountrySelect(e)}>
+                        <select className="btoncreatetittle" defaultValue = {'default'} name = "relatedCountries" onChange = {e => handleCountrySelect(e)}>
                             <option value = 'default' disabled>Select Country</option>
                                 {countries.map(c => (
                                     <option value = {c.name}>{c.name}</option>
