@@ -47,7 +47,9 @@ const postActivity = async (req, res) => {
 }
 
 
+
   module.exports = {
       getActivity,
-      postActivity
+      postActivity,
+      
   }

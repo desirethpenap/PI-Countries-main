@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
       allowNull: true,
     },
     Area: {
-      type: DataTypes.FLOAT,
+      type: DataTypes.DECIMAL,
       allowNull: true,
     },
 

@@ -58,7 +58,7 @@ export default function CardDetails (props) {
                                     <h2>ID: {myCountry.id}</h2>                                    
                                     <h3>Capital: {myCountry.Capital}</h3>                                
                                     <h3>Subregion: {myCountry.Subregion}</h3>                                    
-                                    <h3>Area: {myCountry.Area}</h3>                                    
+                                    <h3>Area: {myCountry.Area}km²</h3>                                    
                                     <h3>Population: {myCountry.Population}</h3>
                                    
                         </div>
