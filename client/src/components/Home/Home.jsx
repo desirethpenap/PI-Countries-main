@@ -29,6 +29,9 @@ export default function Home () {
 
     const indexOfLastCountry = currentPage * countriesPerPage;
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
+    
+    
+
 
     const findCurrentCountries = () => {
         try {
@@ -54,6 +57,7 @@ export default function Home () {
         }
     }
 
+   
     function handleClick(e) {
         e.preventDefault();
         dispatch(getAllCountries());
@@ -146,13 +150,14 @@ export default function Home () {
 
                 </div>
                 <div className = 'pagination'>
-                    <button className = 'previousNext' id = "previous" onClick = {e => {handlePaginationClick(e)}}>Previous</button>
+                    <button className = 'previousNext' id = "previous" onClick = {e => {handlePaginationClick(e)}}>Previous</button>                   
                     <Pagination
                         allCountries = {allCountries.length}
                         currentPage = {currentPage}
                         countriesPerPage = {countriesPerPage}
                         setCurrentPage = {setCurrentPage}
                         pagination = {pagination}
+                       
                     />
                     <button className = 'previousNext' id = "next" onClick = {e => {handlePaginationClick(e)}}>Next</button>
                 </div>                

@@ -46,20 +46,6 @@ const postActivity = async (req, res) => {
     }
 }
 
-// const deleteActivity = async (req, res) => {
-//     const { id } = req.query 
-//     try {
-//         const activityToDelete = await Activity.findByPk(id)
-//         if(!activityToDelete) {
-//             res.status(404).send({message: 'Activity not found'}) 
-//         } else {
-//             activityToDelete.destroy()
-//         }
-//         res.send({message: 'Activity deleted successfully'})
-//     } catch (e) {
-//         console.log(e)
-//     }
-// }
 
   module.exports = {
       getActivity,

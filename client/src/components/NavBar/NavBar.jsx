@@ -5,11 +5,8 @@ import './NavBar.css'
 
 export default function NavBar () {
     return (
-        <div className = 'navContainer'>
-            
-            <Link to = '/home' className='navButton'>
-                Home
-            </Link>              
+        <div className = 'navContainer'>           
+                   
                          
             <Link to = '/activities' className='navButton'>
                 Create Activity

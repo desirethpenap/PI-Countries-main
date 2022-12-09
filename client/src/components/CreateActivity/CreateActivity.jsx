@@ -165,7 +165,7 @@ export default function CreateActivity () {
                     </div>
                     <br></br>
                     <div>
-                        <label className="createActTittle">Duration: </label>
+                        <label className="createActTittle">Duration Min: </label>
                         <input className="btoncreatetittle"
                         type = "text"
                         value = {input.duration}

@@ -10,15 +10,16 @@ export default function pagination ({ allCountries, countriesPerPage, pagination
 
     return (
         <nav>
-            <ul className = 'paginationBar'>
+            <ul className = "paginationBar">
                 {pageNumber && 
                 pageNumber.map(number => {
                     return (
-                        <li className = 'paginationNumber' key = {number}>
-                        <buttom onClick={() => pagination(number)}>
+                         <li key = {number}>
+                        <button className = "pagNumber" onClick={() => pagination(number)}>
                             {number}
-                        </buttom>
+                        </button>
                         </li>
+                       
                     )                   
                 }) 
                 }               

@@ -6,8 +6,7 @@
     height:auto;
 
 }
-.grid-container {
-   
+.grid-container {   
     display: grid;
     gap: 30px;
     height:auto;
@@ -31,7 +30,7 @@
     font-family: "Comic Sans MS", Gadget, sans-serif;
     position: relative;
     margin-bottom: 20px;
-    margin-top: -100px;
+    margin-top: -30px;
 }
 
 .cards-content {    
@@ -125,4 +124,25 @@ button:active {
     
 
 
+}
+
+.previousNext{
+width: auto;
+border: 1px solid;
+background:  #cf60aa; 
+margin-left: 10px;
+color:rgba(20, 20, 20, 0.6) ;
+border-radius: 10px;
+overflow: hidden;
+position: relative;
+font-weight: bold; 
+justify-items: center; 
+font-family: "Comic Sans MS", Gadget, sans-serif;
+font-size: medium; 
+text-decoration: none;
+
+}
+
+#previous{
+    margin-right: -30px;
 }
